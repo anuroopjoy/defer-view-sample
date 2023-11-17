@@ -96,7 +96,7 @@
       </g>
     </svg>
 
-    <span>{{ title }} app is running!</span>
+    <span #view>{{ title }} app is running!</span>
 
     <svg
       id="rocket-smoke"
@@ -116,11 +116,24 @@
     </svg>
   </div>
 
-  <button class="btn btn-primary" (click)="showAdditionalInfo()">
+  <button #btn class="btn btn-primary" (click)="showAdditionalInfo()">
     Show Additional Info
   </button>
-  @defer (when showInfo) {
+  <!-- @defer (when showInfo) { -->
+  <!-- @defer (on viewport) { -->
+  <!-- @defer (on timer(5s)) { -->
+  <!-- @defer (on viewport;on timer(5s)) { -->
+  <!-- @defer (on viewport; when showInfo) { -->
+  <!-- @defer (on idle) { -->
+  <!-- @defer (on viewport(view)) { -->
+  <!-- @defer (on interaction) { -->
+  <!-- @defer (on interaction(btn)) { -->
+  <!-- @defer (on hover) { -->
+  <!-- @defer (on hover(btn)) { -->
+  <!-- @defer (on immediate) { -->
+  @defer (when showInfo;prefetch on idle) {
   <app-additional-info></app-additional-info>
-  } @placeholder { Dynamic content will appear here } @loading (after 100ms;
-  minimum 1s) { Loading... } @error { Failed to load the dynamic content }
+  } @placeholder { <label>Dynamic content will appear here </label>} @loading
+  (after 100ms; minimum 1s) { Loading... } @error { Failed to load the dynamic
+  content }
 </div>
